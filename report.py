@@ -63,6 +63,8 @@ def compare(previous, current, output):
             change = "Missing this week"
         elif old.casefold() == new.casefold():
             change = "Unchanged"
+        elif old.casefold() == "completed" and new.casefold() == "in progress":
+            change = "Reopened"
         elif new.casefold() == "completed":
             change = "Completed"
         else:
@@ -72,7 +74,7 @@ def compare(previous, current, output):
             cell.data_type = "s"
         counts[change] += 1
     summary.append(["Change", "Orders"])
-    for change in ["Added", "Completed", "Status changed", "Missing this week", "Unchanged"]:
+    for change in ["Added", "Completed", "Reopened", "Status changed", "Missing this week", "Unchanged"]:
         summary.append([change, counts[change]])
     for sheet in book:
         sheet.freeze_panes = "A2"
