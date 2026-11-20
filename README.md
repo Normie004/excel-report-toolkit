@@ -2,6 +2,22 @@
 
 Compare two weekly service-order exports by order ID and see what changed. The example orders are fictional.
 
+## Recent update
+
+The two sample exports produce six rows on the Orders sheet:
+
+| Order ID | Last week | This week | Change |
+| --- | --- | --- | --- |
+| DEMO-REOPEN | Completed | In Progress | Reopened |
+| ORD-101 | In Progress | Completed | Completed |
+| ORD-102 | On Hold | In Progress | Status changed |
+| ORD-103 | Scheduled | Scheduled | Unchanged |
+| ORD-104 | In Progress | — | Missing this week |
+| ORD-105 | — | In Progress | Added |
+
+`ORD-105` appears twice in the second export and counts as one new order.
+`ORD-104` disappeared from the export, so the report flags it for review.
+
 ## Run the example
 
 With Python 3 installed, run from the project directory:
