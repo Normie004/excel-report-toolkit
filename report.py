@@ -72,6 +72,10 @@ def compare(previous, current, output):
         detail.append([order, old, new, change])
         for cell in detail[detail.max_row]:
             cell.data_type = "s"
+                if change == "Reopened":
+            detail.cell(detail.max_row, 4).fill = PatternFill("solid", fgColor="FFF2CC")
+        elif change == "Missing this week":
+            detail.cell(detail.max_row, 4).fill = PatternFill("solid", fgColor="FCE4D6")
         counts[change] += 1
     summary.append(["Change", "Orders"])
     for change in ["Added", "Completed", "Reopened", "Status changed", "Missing this week", "Unchanged"]:
