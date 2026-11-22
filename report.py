@@ -27,7 +27,7 @@ def read_rows(path):
 def snapshot(path):
     orders = {}
     rows = read_rows(path)
-    headers = [str(value).strip().lower() for value in next(rows, ())]
+    headers = headers = [" ".join(str(value).lower().split()) for value in next(rows, ())]
     columns = []
     for aliases in ALIASES:
         matches = [i for i, name in enumerate(headers) if name in aliases]
