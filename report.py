@@ -42,7 +42,7 @@ def snapshot(path):
         if not order or not status:
             raise ValueError(f"{path}, row {line}: missing order ID or status")
         if order in orders and orders[order].casefold() != status.casefold():
-            raise ValueError(f"{path}, row {line}: conflicting statuses for {order}")
+            raise ValueError(f"{path}, row {line}: conflicting statuses for {order}: {orders[order]!r} and {status!r}")
         orders[order] = status
     return orders
 
